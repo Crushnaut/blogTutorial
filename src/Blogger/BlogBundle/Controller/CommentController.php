@@ -39,7 +39,7 @@ class CommentController extends Controller
             $em->persist($comment);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('BloggerBlogBundle_blog_show', array('id' => $comment->getBlog()->getId())) . '#comment-' . $comment->getId());
+            return $this->redirect($this->generateUrl('BloggerBlogBundle_blog_show', array('id' => $comment->getBlog()->getId(), 'slug'  => $comment->getBlog()->getSlug())) . '#comment-' . $comment->getId());
         }
 
         return $this->render('BloggerBlogBundle:Comment:create.html.twig', array('comment' => $comment, 'form' => $form->createView()));

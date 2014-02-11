@@ -3,8 +3,9 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <link href="{{ asset('bundles/bloggerblog/css/blog.css') }}" type="text/css" rel="stylesheet" />
-    <link href="{{ asset('bundles/bloggerblog/css/sidebar.css') }}" type="text/css" rel="stylesheet" />
+    {% stylesheets '@BloggerBlogBundle/Resources/public/css/*' %}
+        <link href="{{ asset_url }}" rel="stylesheet" media="screen" />
+    {% endstylesheets %}
 {% endblock %}
 
 {% block sidebar %}
